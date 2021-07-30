@@ -33,3 +33,10 @@ h1 {
     border:2px solid var(--orange); 
     padding: 30px; 
 }
+
+.city-name, .forecast-section>h3 { 
+    color:var(--blue); 
+}
+.forecast-section>h3 {
+    margin-top: 20px; 
+}
