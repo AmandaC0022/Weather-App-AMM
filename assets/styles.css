@@ -1,6 +1,9 @@
-/* :root {
-
-} */
+:root {
+    --blue:#0005a7; 
+    --orange:#ffa836; 
+    --lightorange:#ffd3A2; 
+    --darkorange:#dd6200; 
+}
 
 body {
     background-image: url("./clouds.jpg"); 
