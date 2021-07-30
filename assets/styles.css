@@ -13,13 +13,42 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+/* What's the Weather?  */
 h1 {
     text-align: center;
     color: var(--blue); 
     padding:20px; 
     background: linear-gradient(to right, var(--darkorange), var(--orange)); 
 }
+/* Search for a City:  */
+.search-section {
+    background: linear-gradient(var(--orange), var(--darkorange));
+    text-align: center;
+}
+input {
+    width:100%; 
+    margin: 5px; 
+}
+.search-section>h4 {
+    color: var(--blue); 
+    margin-top: 15px; 
+}
 
+/* Current Weather Display Box  */
+.current-weather-container {
+    border:2px solid var(--orange); 
+    padding: 30px; 
+    /* display:none;  */
+}
+
+.city-name, .forecast-section>h3 { 
+    color:var(--blue); 
+}
+
+/* 5 Day Forecase Section  */
+.forecast-section {
+    /* display:none;  */
+}
 .forecast-grid {
     background: linear-gradient(var(--orange), var(--darkorange)); 
     margin: 10px; 
@@ -28,15 +57,8 @@ h1 {
 .forecast-grid>h5 {
     color:var(--blue); 
 }
-
-.current-weather-container {
-    border:2px solid var(--orange); 
-    padding: 30px; 
-}
-
-.city-name, .forecast-section>h3 { 
-    color:var(--blue); 
-}
 .forecast-section>h3 {
     margin-top: 20px; 
 }
+
+
