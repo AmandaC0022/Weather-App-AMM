@@ -1,10 +1,14 @@
-:root {
-    
-}
+/* :root {
+
+} */
 
 body {
     background-image: url("./clouds.jpg"); 
     background-repeat: no-repeat; 
     background-size: cover; 
     background-position: center;
+}
+
+.search-section {
+    height:100%; 
 }
