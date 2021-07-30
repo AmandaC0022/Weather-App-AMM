@@ -10,8 +10,12 @@ body {
     background-repeat: no-repeat; 
     background-size: cover; 
     background-position: center;
+    font-family: 'Poppins', sans-serif;
 }
 
-.search-section {
-    height:100%; 
+h1 {
+    text-align: center;
+    color: var(--blue); 
+    padding:20px; 
+    background: linear-gradient(to right, var(--darkorange), var(--lightorange)); 
 }
