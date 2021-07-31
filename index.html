@@ -27,24 +27,29 @@
                 <input> <br>
                 <button href="#" class="btn btn-primary">Search</button>
                 <hr>
-                <ul>
-                    <li><button data-location="Chicago">Chicago</button></li>
-                    <li><button data-location="Austin">Austin</button></li>
-                    <li><button data-location="New York">New York</button></li>
-                </ul>
+                <div class="list-group"> 
+                    <ul id="history">
+                        <li><button data-location="Chicago">Chicago</button></li>
+                    </ul>
+                </div>
             </aside>
             <div class="col-9">
                 <div class="row current-weather-container">
                     <h3 class="title city-name">Atlanta (current date)</h3> 
                     <!-- Add icon for type of weather -->
-                    <p>Temp: 74.01 F</p>
-                    <p>Wind: 6.67 MPH</p>
-                    <p>Humidity: 46%</p>
-                    <!-- UV Index needs to have a color set on it Green means good, yellow means ok, and red means bad  -->
-                    <p>UV Index: 0.46</p>
-                    <!-- Add jumbrotron to display current city weather  -->
+                    <dl>
+                        <dt>Temp: </dt>
+                        <dd>73.72 F</dd>
+                        <dt>Wind: </dt>
+                        <dd>windy</dd>
+                        <dt>Humidity: </dt>
+                        <dd>66%</dd>
+                        <!-- UV Index needs to have a color set on it Green means good, yellow means ok, and red means bad  -->
+                        <dt>UV Index: </dt>
+                        <dd>0.46</dd>
+                    </dl>
                 </div>
-                <div class="row forecast-section justify-content-center">
+                <div class="row forecast-section justify-content-end">
                     <!-- add next 5 day forecase in a grid format  -->
                     <h3>5 Day Forecast: </h3>
                     <div class="row">
