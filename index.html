@@ -21,60 +21,93 @@
     </header>
     <main class="container">
         <!-- TO DO: Add responsive design to layout for smaller screens  -->
-        <div class="row justify-content-end">
-            <div class="col-3 search-section">
+        <div class="row">
+            <aside class="col-3 search-section">
                 <h4 class="title">Search for a City:</h4>
                 <input> <br>
-                <a href="#" class="btn btn-primary">Search</a>
-            </div>
-            <div class="col-9 current-weather-container">
-                <h3 class="title city-name">Atlanta (current date)</h3> 
-                <!-- Add icon for type of weather -->
-                <p>Temp: 74.01 F</p>
-                <p>Wind: 6.67 MPH</p>
-                <p>Humidity: 46%</p>
-                <!-- UV Index needs to have a color set on it Green means good, yellow means ok, and red means bad  -->
-                <p>UV Index: 0.46</p>
-                <!-- Add jumbrotron to display current city weather  -->
-            </div>
-            <div class="col-9 forecast-section">
-                <!-- add next 5 day forecase in a grid format  -->
-                <h3>5 Day Forecast: </h3>
-                <div class="row">
-                    <div class="col forecast-grid">
-                        <h5>Date</h5>
-                        <!-- Add icon for weather -->
-                        <p>Temp: </p>
-                        <p>Wind: </p>
-                        <p>Humidity: </p>
-                    </div>
-                    <div class="col forecast-grid">
-                        <h5>Date</h5>
-                        <!-- Add icon for weather -->
-                        <p>Temp: </p>
-                        <p>Wind: </p>
-                        <p>Humidity: </p>
-                    </div>
-                    <div class="col forecast-grid">
-                        <h5>Date</h5>
-                        <!-- Add icon for weather -->
-                        <p>Temp: </p>
-                        <p>Wind: </p>
-                        <p>Humidity: </p>
-                    </div>
-                    <div class="col forecast-grid">
-                        <h5>Date</h5>
-                        <!-- Add icon for weather -->
-                        <p>Temp: </p>
-                        <p>Wind: </p>
-                        <p>Humidity: </p>
-                    </div>
-                    <div class="col forecast-grid">
-                        <h5>Date</h5>
-                        <!-- Add icon for weather -->
-                        <p>Temp: </p>
-                        <p>Wind: </p>
-                        <p>Humidity: </p>
+                <button href="#" class="btn btn-primary">Search</button>
+                <hr>
+                <ul>
+                    <li><button data-location="Chicago">Chicago</button></li>
+                    <li><button data-location="Austin">Austin</button></li>
+                    <li><button data-location="New York">New York</button></li>
+                </ul>
+            </aside>
+            <div class="col-9">
+                <div class="row current-weather-container">
+                    <h3 class="title city-name">Atlanta (current date)</h3> 
+                    <!-- Add icon for type of weather -->
+                    <p>Temp: 74.01 F</p>
+                    <p>Wind: 6.67 MPH</p>
+                    <p>Humidity: 46%</p>
+                    <!-- UV Index needs to have a color set on it Green means good, yellow means ok, and red means bad  -->
+                    <p>UV Index: 0.46</p>
+                    <!-- Add jumbrotron to display current city weather  -->
+                </div>
+                <div class="row forecast-section justify-content-center">
+                    <!-- add next 5 day forecase in a grid format  -->
+                    <h3>5 Day Forecast: </h3>
+                    <div class="row">
+                        <div class="col forecast-grid">
+                            <h5>Date</h5>
+                            <!-- Add icon for weather -->
+                            <dl>
+                                <dt>Temp: </dt>
+                                <dd>73.72 F</dd>
+                                <dt>Wind: </dt>
+                                <dd>windy</dd>
+                                <dt>Humidity: </dt>
+                                <dd>66%</dd>
+                            </dl>
+                        </div>
+                        <div class="col forecast-grid">
+                            <h5>Date</h5>
+                            <!-- Add icon for weather -->
+                            <dl>
+                                <dt>Temp: </dt>
+                                <dd>73.72 F</dd>
+                                <dt>Wind: </dt>
+                                <dd>windy</dd>
+                                <dt>Humidity: </dt>
+                                <dd>66%</dd>
+                            </dl>
+                        </div>
+                        <div class="col forecast-grid">
+                            <h5>Date</h5>
+                            <!-- Add icon for weather -->
+                            <dl>
+                                <dt>Temp: </dt>
+                                <dd>73.72 F</dd>
+                                <dt>Wind: </dt>
+                                <dd>windy</dd>
+                                <dt>Humidity: </dt>
+                                <dd>66%</dd>
+                            </dl>
+                        </div>
+                        <div class="col forecast-grid">
+                            <h5>Date</h5>
+                            <!-- Add icon for weather -->
+                            <dl>
+                                <dt>Temp: </dt>
+                                <dd>73.72 F</dd>
+                                <dt>Wind: </dt>
+                                <dd>windy</dd>
+                                <dt>Humidity: </dt>
+                                <dd>66%</dd>
+                            </dl>
+                        </div>
+                        <div class="col forecast-grid">
+                            <h5>Date</h5>
+                            <!-- Add icon for weather -->
+                            <dl>
+                                <dt>Temp: </dt>
+                                <dd>73.72 F</dd>
+                                <dt>Wind: </dt>
+                                <dd>windy</dd>
+                                <dt>Humidity: </dt>
+                                <dd>66%</dd>
+                            </dl>
+                        </div>
                     </div>
                 </div>
             </div>
