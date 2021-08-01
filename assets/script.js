@@ -20,11 +20,22 @@ function handleSuccessfulLocationFetch(data, location) {
     // Add city to li 
     createHistoryButton(location); 
     // add city to local storage 
-    
+    setLocalStorage(location); 
     // display city data to current city display
     //fetch 5 day forecast  
 }; 
 
+function setLocalStorage(location) {
+    var locations = localStorage.getItem("savedLocations");
+    var parsedLocations = []; 
+    if (locations) {
+        parsedLocations = JSON.parse(locations);  
+    } 
+    parsedLocations.push(location);
+    localStorage.setItem("savedLocations", JSON.stringify(parsedLocations)); 
+}
+
+//this turns each of the cities into a button in the li 
 function createHistoryButton(location) {
     var listItem = document.createElement("li"); 
     var content = `<button data-location="${location}">${location}</button>`; 
@@ -39,6 +50,7 @@ function updateContentPane(evt) {
     console.log(location);  
 }
 
+//this gets the user input for the city, then gets fetches the data from the open weather app 
 function getLocation(evt) {
     evt.preventDefault(); 
     var location = searchInputEl.value; 
