@@ -10,20 +10,27 @@ function displaySavedLocations() {
     if (locations) {
         var parsedLocations = JSON.parse(locations); 
         parsedLocations.forEach(function(item) {
-            var listItem = document.createElement("li"); 
-            var content = `<button data-location="${item}">${item}</button>`; 
-            listItem.innerHTML = content; 
-            historyEl.appendChild(listItem); 
+            createHistoryButton(item); 
         }); 
     }
 }
 
 //Once you receive the fetch data back, you do this: 
-function handleSuccessfulLocationFetch(data) {
+function handleSuccessfulLocationFetch(data, location) {
     // Add city to li 
+    createHistoryButton(location); 
     // add city to local storage 
-    // display city data to current city display 
+    
+    // display city data to current city display
+    //fetch 5 day forecast  
 }; 
+
+function createHistoryButton(location) {
+    var listItem = document.createElement("li"); 
+    var content = `<button data-location="${location}">${location}</button>`; 
+    listItem.innerHTML = content; 
+    historyEl.appendChild(listItem); 
+}
 
 //when user clicks on any city button, it will change the content in the current city display 
 function updateContentPane(evt) {
@@ -54,7 +61,7 @@ function getLocation(evt) {
         if (data.count === 0) {
             window.alert("this is not a valid location"); 
         } 
-        handleSuccessfulLocationFetch(data); 
+        handleSuccessfulLocationFetch(data, location); 
     }).catch(function () {
         window.alert("something went wrong"); 
     })
@@ -70,7 +77,6 @@ function setEventListeners() {
 function init() {
     setEventListeners(); 
     displaySavedLocations(); 
-
 }
 
 init(); 
