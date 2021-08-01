@@ -18,6 +18,13 @@ function displaySavedLocations() {
     }
 }
 
+//Once you receive the fetch data back, you do this: 
+function handleSuccessfulLocationFetch(data) {
+    // Add city to li 
+    // add city to local storage 
+    // display city data to current city display 
+}; 
+
 //when user clicks on any city button, it will change the content in the current city display 
 function updateContentPane(evt) {
     var buttonClicked = evt.target; 
@@ -43,7 +50,11 @@ function getLocation(evt) {
         }
         return response.json()
     }).then(function (data) {
-        console.log(data); 
+        console.log("data", data);
+        if (data.count === 0) {
+            window.alert("this is not a valid location"); 
+        } 
+        handleSuccessfulLocationFetch(data); 
     }).catch(function () {
         window.alert("something went wrong"); 
     })
