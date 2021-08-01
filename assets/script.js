@@ -22,19 +22,31 @@ function displaySavedLocations() {
 function updateContentPane(evt) {
     var buttonClicked = evt.target; 
     var location = buttonClicked.getAttribute("data-location"); 
-    window.alert(location); 
+    console.log(location);  
 }
 
 function getLocation(evt) {
     evt.preventDefault(); 
     var location = searchInputEl.value; 
+    console.log(location); 
+    
+    //if input is empty then alert message shows 
     if (!location) {
         window.alert("Please enter a location"); 
     } 
 
-    var url = `${apiUrl}/data/2.5/find?q=${location}&appid=${appId}`
+    var url = `${apiUrl}/data/2.5/find?q=${location}&appid=${appId}`; 
 
-    fetch(); 
+    fetch(url).then(function(response) {
+        if (!response.ok) {
+            console.log(response.status);  
+        }
+        return response.json()
+    }).then(function (data) {
+        console.log(data); 
+    }).catch(function () {
+        window.alert("something went wrong"); 
+    })
 }
 
 //creates Event Listeners on all of the cities 
@@ -45,7 +57,7 @@ function setEventListeners() {
 
 //beginning function 
 function init() {
-    setEventListeners()
+    setEventListeners(); 
     displaySavedLocations(); 
 
 }
