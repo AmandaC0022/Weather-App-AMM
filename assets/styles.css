@@ -36,11 +36,21 @@ input {
 li {
     list-style-type: none;
 }
+li>button {
+    width: 100%; 
+    text-align:center; 
+    background-color: var(--blue); 
+    color: var(--light); 
+}
+#history {
+    padding:0; 
+}
 
 /* Current Weather Display Box  */
 .current-weather-container {
     border:2px solid var(--orange); 
-    padding: 30px; 
+    padding-top:30px; 
+    padding-left:30px; 
     /* display:none;  */
 }
 
@@ -63,5 +73,6 @@ li {
 .forecast-section>h3 {
     margin-top: 20px; 
 }
-
-
+span {
+    display:inline; 
+}
