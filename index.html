@@ -30,8 +30,9 @@
             <aside class="col-3 search-section">
                 <h4 class="title">Search for a City:</h4>
                 <!-- TO DO: Take br out!  -->
-                <input id="city-input"> <br>
+                <input id="city-input" placeholder="city name"> <br>
                 <button id="search-button" href="#" class="btn btn-primary">Search</button>
+                <p id="search-error"></p>
                 <hr>
                 <div class="list-group"> 
                     <ul id="history">
@@ -42,17 +43,18 @@
                 <div class="row current-weather-container">
                     <h3 id="current-city-name" class="title city-name"></h3> 
                     <h4 id="current-date" class="city-name"></h4>
+                    <div id="current-city-icon"></div>
                     <!-- Add icon for type of weather -->
                     <dl>
                         <dt>Temp: </dt>
                         <dd id="current-city-temp"></dd>
-                        <dt>Clouds: </dt>
-                        <dd>clear skys</dd>
+                        <dt>Wind: </dt>
+                        <dd id="current-city-wind"></dd>
                         <dt>Humidity: </dt>
                         <dd id="current-city-humidity"></dd>
                         <!-- UV Index needs to have a color set on it Green means good, yellow means ok, and red means bad  -->
                         <dt>UV Index: </dt>
-                        <dd>0.46</dd>
+                        <dd id="current-city-uv"></dd>
                     </dl>
                 </div>
                 <div class="row forecast-section justify-content-end">
