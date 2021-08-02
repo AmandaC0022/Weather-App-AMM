@@ -35,7 +35,7 @@ function getLocation(evt) {
 
     setLocalStorage(); 
     //TO DO: create buttons and append them to the li 
-    setHistoryButtons(); 
+    setHistoryButton(location); 
     //run the API call to get weather data for location 
     getApi(location); 
 }
@@ -45,6 +45,13 @@ function setLocalStorage() {
     localStorage.setItem("savedLocations", JSON.stringify(historyLocations)); 
 }
 
+//when user types in new city, it creates a new button below 
+function setHistoryButton(location) {
+    var listItem = document.createElement("li"); 
+    var content = `<button data-location="${location}">${location}</button>`; 
+    listItem.innerHTML = content; 
+    historyEl.appendChild(listItem); 
+}
 //gets data from Weather Api and displays it inside the current city container 
 function getApi(location) {
     const apiUrl = "https://api.openweathermap.org"; 
