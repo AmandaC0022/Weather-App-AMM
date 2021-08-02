@@ -9,8 +9,8 @@ var currentCityWindEl = document.getElementById("current-city-wind");
 var currentCityUvEl = document.getElementById("current-city-uv"); 
 var currentCityIcon = document.getElementById("current-city-icon"); 
 var searchErrorMessage = document.getElementById("search-error"); 
-
 var historyLocations = []; 
+
 //beginning function 
 function init() {
     searchBtn.addEventListener("click", getLocation); 
@@ -86,6 +86,13 @@ function getApi(location) {
       var lon = data.coord.lon; 
   });
 }
+
+historyEl.addEventListener("click", function(event) {
+    //when user clicks on any li, it generates the API for that city's data 
+    var city = event.target.getAttribute("data-location"); 
+    
+    getApi(city); 
+})
 
 // This displays the current time in the Current City Display 
 var today = moment();
