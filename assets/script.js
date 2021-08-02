@@ -104,8 +104,18 @@ function get5DayApi(location, lat, lon) {
         var httpIcon = `http://openweathermap.org/img/wn/${dataIcon}@2x.png`; 
         currentCityIcon.innerHTML = "<img src=" + httpIcon + " alt='weather icon' </img>";  
 
+        var div = document.createElement("div"); 
+        div.innerHTML = "<h5>Date</h5>"; 
+        div.classList.add("col", "forecast-grid"); 
+        fiveDayForcastEl.appendChild(div); 
+        var date = document.createElement("h5"); 
+        nextDay = moment().add(1, "days");  
+        date.textContent = nextDay.format("dddd");  
+        div.appendChild(date); 
+
         for (var i=1; i<=5; i++) {
             //TO DO: create the 5 day forcast cards with data from the api call 
+
         }
     }); 
 }
