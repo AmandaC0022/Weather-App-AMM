@@ -19,8 +19,10 @@ function init() {
     //display saved locations from local storage 
     setSavedLocations(); 
     //hides current city display 
-    // document.getElementById("current-weather-container").style.display = "none"; 
+    document.querySelector(".current-weather-container").style.display = "none"; 
     //hides 5 day forecast display 
+    document.querySelector(".forecast-section").style.display = "none"; 
+    
     }
 
 //gets the user's input and saves it as location 
@@ -133,7 +135,9 @@ function get5DayApi(location, lat, lon) {
 }
 
 function changeDisplay () {
-    currentWeatherContainer.css("display", "block"); 
+    document.querySelector(".current-weather-container").style.display = "block"; 
+    //hides 5 day forecast display 
+    document.querySelector(".forecast-section").style.display = "block";  
 }
 
 //when user clicks on history button, weather api is called and generated 
@@ -142,7 +146,7 @@ historyEl.addEventListener("click", function(event) {
     var city = event.target.getAttribute("data-location"); 
     
     getApi(city); 
-    changeDisplay; 
+    changeDisplay(); 
 })
 
 // This displays the current time in the Current City Display 
