@@ -15,6 +15,7 @@ var historyLocations = [];
 function init() {
     searchBtn.addEventListener("click", getLocation); 
     //display saved locations from local storage 
+    setSavedLocations(); 
     //hides current city display 
     //hides 5 day forecast display 
     }
@@ -51,6 +52,19 @@ function setHistoryButton(location) {
     var content = `<button data-location="${location}">${location}</button>`; 
     listItem.innerHTML = content; 
     historyEl.appendChild(listItem); 
+}
+
+//creates history buttons from the cities in local storage 
+function setSavedLocations() {
+    var locations = localStorage.getItem("savedLocations"); 
+    //locations isn't empty then... 
+    if (locations) {
+        parsedLocations = JSON.parse(locations); 
+        parsedLocations.forEach(function(item) {
+            historyLocations.push(item.toLowerCase()); 
+            setHistoryButton(item, locations); 
+        }); 
+    }
 }
 //gets data from Weather Api and displays it inside the current city container 
 function getApi(location) {
