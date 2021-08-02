@@ -100,22 +100,34 @@ function get5DayApi(location, lat, lon) {
         
         //displays the current UV Index and Weather Icon 
         currentCityUvEl.textContent = data.current.uvi; 
-        var dataIcon = data.current.weather[0].icon; 
-        var httpIcon = `http://openweathermap.org/img/wn/${dataIcon}@2x.png`; 
+        var currentIcon = data.current.weather[0].icon; 
+        var httpIcon = `http://openweathermap.org/img/wn/${currentIcon}@2x.png`; 
         currentCityIcon.innerHTML = "<img src=" + httpIcon + " alt='weather icon' </img>";  
-
-        var div = document.createElement("div"); 
-        div.innerHTML = "<h5>Date</h5>"; 
-        div.classList.add("col", "forecast-grid"); 
-        fiveDayForcastEl.appendChild(div); 
-        var date = document.createElement("h5"); 
-        nextDay = moment().add(1, "days");  
-        date.textContent = nextDay.format("dddd");  
-        div.appendChild(date); 
-
+        
+        //creates the 5 day forecast cards 
         for (var i=1; i<=5; i++) {
-            //TO DO: create the 5 day forcast cards with data from the api call 
-
+            var div = document.createElement("div"); 
+            div.classList.add("col", "forecast-grid"); 
+            fiveDayForcastEl.appendChild(div);
+            var date = document.createElement("h5"); 
+            nextDay = moment().add(i, "days");  
+            date.textContent = nextDay.format("dddd");  
+            div.append(date); 
+            var newIcon = data.daily[i].weather[0].icon; 
+            console.log(currentIcon); 
+            var img = document.createElement("img");  
+            img.setAttribute("src", `http://openweathermap.org/img/wn/${newIcon}@2x.png`); 
+            img.setAttribute("alt", "weather icon");  
+            div.appendChild(img); 
+            var temp = document.createElement("p"); 
+            temp.textContent = "Temp: " + data.daily[i].temp.day + " F"; 
+            var wind = document.createElement("p"); 
+            wind.textContent = "Wind: " + data.daily[i].wind_speed + " MPH"; 
+            var humidity = document.createElement("p"); 
+            humidity.textContent = "Humidity: " + data.daily[i].humidity + " %"; 
+            div.append(temp);
+            div.append(wind);
+            div.append(humidity);
         }
     }); 
 }
