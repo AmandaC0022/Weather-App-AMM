@@ -10,6 +10,7 @@ var currentCityUvEl = document.getElementById("current-city-uv");
 var currentCityIcon = document.getElementById("current-city-icon"); 
 var searchErrorMessage = document.getElementById("search-error"); 
 var fiveDayForcastEl = document.getElementById("five-day-forcast"); 
+
 var historyLocations = []; 
 
 //beginning function 
@@ -18,6 +19,7 @@ function init() {
     //display saved locations from local storage 
     setSavedLocations(); 
     //hides current city display 
+    // document.getElementById("current-weather-container").style.display = "none"; 
     //hides 5 day forecast display 
     }
 
@@ -96,7 +98,6 @@ function get5DayApi(location, lat, lon) {
         .then(function (response) {
         return response.json();
         }).then(function(data) {
-        console.log(data)
         
         //displays the current UV Index and Weather Icon 
         currentCityUvEl.textContent = data.current.uvi; 
@@ -114,7 +115,6 @@ function get5DayApi(location, lat, lon) {
             date.textContent = nextDay.format("dddd");  
             div.append(date); 
             var newIcon = data.daily[i].weather[0].icon; 
-            console.log(currentIcon); 
             var img = document.createElement("img");  
             img.setAttribute("src", `http://openweathermap.org/img/wn/${newIcon}@2x.png`); 
             img.setAttribute("alt", "weather icon");  
@@ -132,12 +132,17 @@ function get5DayApi(location, lat, lon) {
     }); 
 }
 
+function changeDisplay () {
+    currentWeatherContainer.css("display", "block"); 
+}
+
 //when user clicks on history button, weather api is called and generated 
 historyEl.addEventListener("click", function(event) {
     //when user clicks on any li, it generates the API for that city's data 
     var city = event.target.getAttribute("data-location"); 
     
     getApi(city); 
+    changeDisplay; 
 })
 
 // This displays the current time in the Current City Display 

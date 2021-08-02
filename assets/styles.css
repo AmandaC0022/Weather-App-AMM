@@ -50,8 +50,7 @@ li>button {
 .current-weather-container {
     border:2px solid var(--orange); 
     padding-top:30px; 
-    padding-left:30px; 
-    /* display:none;  */
+    padding-left:30px;  
 }
 
 .city-name, .forecast-section>h3 { 
@@ -59,9 +58,6 @@ li>button {
 }
 
 /* 5 Day Forecase Section  */
-.forecast-section {
-    /* display:none;  */
-}
 .forecast-grid {
     background: linear-gradient(var(--orange), var(--darkorange)); 
     margin: 10px; 
