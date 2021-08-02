@@ -9,6 +9,7 @@ var currentCityWindEl = document.getElementById("current-city-wind");
 var currentCityUvEl = document.getElementById("current-city-uv"); 
 var currentCityIcon = document.getElementById("current-city-icon"); 
 var searchErrorMessage = document.getElementById("search-error"); 
+var fiveDayForcastEl = document.getElementById("five-day-forcast"); 
 var historyLocations = []; 
 
 //beginning function 
@@ -75,8 +76,6 @@ function getApi(location) {
     .then(function (response) {
       return response.json();
   }).then(function(data) {
-      console.log(data)
-
       currentCityNameEl.textContent = data.name; 
       currentCityTempEl.textContent = data.main.temp + " F"; 
       currentCityWindEl.textContent = data.wind.speed + " MPH"; 
@@ -94,12 +93,21 @@ function get5DayApi(location, lat, lon) {
     const appId = "e60fb9490d8e18d47400113b273eeb77"; 
 
     fetch(`${apiUrl}/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=imperial&appid=${appId}`) 
-.then(function (response) {
-      return response.json();
-  }).then(function(data) {
-      console.log(data)
-      
-  }); 
+        .then(function (response) {
+        return response.json();
+        }).then(function(data) {
+        console.log(data)
+        
+        //displays the current UV Index and Weather Icon 
+        currentCityUvEl.textContent = data.current.uvi; 
+        var dataIcon = data.current.weather[0].icon; 
+        var httpIcon = `http://openweathermap.org/img/wn/${dataIcon}@2x.png`; 
+        currentCityIcon.innerHTML = "<img src=" + httpIcon + " alt='weather icon' </img>";  
+
+        for (var i=1; i<=5; i++) {
+            //TO DO: create the 5 day forcast cards with data from the api call 
+        }
+    }); 
 }
 
 //when user clicks on history button, weather api is called and generated 
