@@ -84,9 +84,25 @@ function getApi(location) {
 
       var lat = data.coord.lat; 
       var lon = data.coord.lon; 
+
+      get5DayApi(location, lat, lon); 
   });
 }
 
+function get5DayApi(location, lat, lon) {
+    const apiUrl = "https://api.openweathermap.org"; 
+    const appId = "e60fb9490d8e18d47400113b273eeb77"; 
+
+    fetch(`${apiUrl}/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=imperial&appid=${appId}`) 
+.then(function (response) {
+      return response.json();
+  }).then(function(data) {
+      console.log(data)
+      
+  }); 
+}
+
+//when user clicks on history button, weather api is called and generated 
 historyEl.addEventListener("click", function(event) {
     //when user clicks on any li, it generates the API for that city's data 
     var city = event.target.getAttribute("data-location"); 
