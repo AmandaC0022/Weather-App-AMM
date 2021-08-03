@@ -100,8 +100,21 @@ function get5DayApi(location, lat, lon) {
         return response.json();
         }).then(function(data) {
         
-        //displays the current UV Index and Weather Icon 
+        //displays the current UV Index
         currentCityUvEl.textContent = data.current.uvi; 
+        if (data.current.uvi <= 2) {
+            currentCityUvEl.style.background = "green"; 
+        } else if (data.current.uvi <= 5) {
+            currentCityUvEl.style.background = "yellow"; 
+        } else if (data.current.uvi <= 7) {
+            currentCityUvEl.style.background = "orange"; 
+        } else if (data.current.uvi <= 10) {
+            currentCityUvEl.style.background = "red"; 
+        } else {
+            currentCityUvEl.style.background = "dark-red"; 
+        }
+
+        //displays weather icon
         var currentIcon = data.current.weather[0].icon; 
         var httpIcon = `http://openweathermap.org/img/wn/${currentIcon}@2x.png`; 
         currentCityIcon.innerHTML = "<img src=" + httpIcon + " alt='weather icon' </img>";  
