@@ -25,9 +25,9 @@ function init() {
     }
 
 //gets the user's input and saves it as location 
-function getLocation(evt) {
-    evt.preventDefault(); 
-    var location = searchInputEl.value; 
+function getLocation() {
+    // evt.preventDefault(); 
+    var location = searchInputEl.value.toLowerCase();  
     console.log(location); 
     //if input is empty, displays error message 
     if(!location) {
@@ -43,6 +43,7 @@ function getLocation(evt) {
     setHistoryButton(location); 
     //run the API call to get weather data for location 
     getApi(location); 
+    changeDisplay(); 
 }
 
 //sets city names into local storage as an array of strings 
@@ -52,7 +53,7 @@ function setLocalStorage() {
 
 //when user types in new city, it creates a new button below 
 function setHistoryButton(location) {
-    var listItem = document.createElement("li"); 
+    var listItem = document.createElement("li");  
     var content = `<button data-location="${location}">${location}</button>`; 
     listItem.innerHTML = content; 
     historyEl.appendChild(listItem); 
