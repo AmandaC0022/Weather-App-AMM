@@ -12,6 +12,7 @@ var searchErrorMessage = document.getElementById("search-error");
 var fiveDayForcastEl = document.getElementById("five-day-forcast"); 
 
 var historyLocations = []; 
+console.log(historyLocations); 
 
 //beginning function 
 function init() {
@@ -28,20 +29,18 @@ function init() {
 function getLocation() {
     // evt.preventDefault(); 
     var location = searchInputEl.value.toLowerCase();  
-    console.log(location); 
+    
     //if input is empty, displays error message 
     if(!location) {
         searchErrorMessage.textContent = "Please enter a valid location."
     }
-    //only add city to local storage IF the city name isn't already there 
-    if(historyLocations.includes(location) === false && location !== "") {
+    //only add city IF the city name isn't already there 
+    if(historyLocations.indexOf(location) === -1) {
         historyLocations.push(location); 
+        setHistoryButton(location); 
     }
 
     setLocalStorage(); 
-    //TO DO: create buttons and append them to the li 
-    setHistoryButton(location); 
-    //run the API call to get weather data for location 
     getApi(location); 
     changeDisplay(); 
 }
