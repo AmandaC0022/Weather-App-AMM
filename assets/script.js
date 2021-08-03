@@ -22,7 +22,6 @@ function init() {
     document.querySelector(".current-weather-container").style.display = "none"; 
     //hides 5 day forecast display 
     document.querySelector(".forecast-section").style.display = "none"; 
-    
     }
 
 //gets the user's input and saves it as location 
@@ -107,6 +106,9 @@ function get5DayApi(location, lat, lon) {
         var httpIcon = `http://openweathermap.org/img/wn/${currentIcon}@2x.png`; 
         currentCityIcon.innerHTML = "<img src=" + httpIcon + " alt='weather icon' </img>";  
         
+        //clears the old 5 day forecast before populating it with new content in the for loop 
+        fiveDayForcastEl.innerHTML = ""; 
+
         //creates the 5 day forecast cards 
         for (var i=1; i<=5; i++) {
             var div = document.createElement("div"); 
@@ -130,7 +132,7 @@ function get5DayApi(location, lat, lon) {
             div.append(temp);
             div.append(wind);
             div.append(humidity);
-        }
+        }  
     }); 
 }
 
