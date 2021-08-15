@@ -3,6 +3,14 @@
 ## Description
 This application allows the user to search for any city in the US. Once user clicks on the search button, it will load the current weather for that city as well as the next 5 days forecast. Once the user searches for the city, it will add the city to local storage and adds the city to the history. The user can click on different city buttons to display different cities' weather. 
 
+## List of Technologies Used: 
+- HTML 
+- CSS
+- Open Weather API
+- JavaScript 
+- Google Fonts 
+- Giphy 
+
 ## Link to Github Repo 
 https://github.com/AmandaC0022/Weather-App-AMM/settings/pages
 
@@ -11,3 +19,5 @@ https://amandac0022.github.io/Weather-App-AMM/
 
 ## Screenshot of Deployed Webpage 
 ![Weather App Screenshot](WeatherApp-Screenshot.png)
+
+![Weather Gif](https://media.giphy.com/media/xvd8GSwOaYf2Zp3DRg/giphy.gif)
